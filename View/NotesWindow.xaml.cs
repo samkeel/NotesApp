@@ -28,5 +28,17 @@ namespace NotesApp.View
         {
             Application.Current.Shutdown();
         }
+
+        private void ContentRichTextbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int ammountOfCharacters = (new TextRange(contentRichTextbox.Document.ContentStart, contentRichTextbox.Document.ContentEnd)).Text.Length;
+            statusTextBlock.Text = $"Document length: {ammountOfCharacters} characters";
+        }
+
+        private void boldButton_Click(object sender, RoutedEventArgs e)
+        {
+            //var textToBold = new TextRange(contentRichTextbox.Selection.Start, contentRichTextbox.Selection.End);
+            contentRichTextbox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+        }
     }
 }

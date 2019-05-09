@@ -50,15 +50,26 @@
         </ListView>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button x:Name="boldButton" 
+                <ToggleButton x:Name="boldButton" 
                         Click="boldButton_Click">
                     <TextBlock Text="B"
                                FontWeight="Bold"/>
-                </Button>
+                </ToggleButton>
+                <ToggleButton x:Name="italicButton" 
+                        Click="italicButton_Click">
+                    <TextBlock Text="I"
+                               FontStyle="Italic"/>
+                </ToggleButton>
+                <ToggleButton x:Name="underlineButton" 
+                        Click="underlineButton_Click">
+                    <TextBlock Text="U"
+                               TextDecorations="Underline"/>
+                </ToggleButton>
             </ToolBar>
         </ToolBarTray>
         <Grid>
             <RichTextBox x:Name="contentRichTextbox"
+                         SelectionChanged="ContentRichTextbox_SelectionChanged"
                          TextChanged="ContentRichTextbox_TextChanged">
             </RichTextBox>
         </Grid>        
